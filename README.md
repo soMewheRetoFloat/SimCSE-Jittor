@@ -61,6 +61,6 @@ bash ./script/run_sup_train.sh
 
 ## 目前发现的 jittor 问题
 
-+ AdamW优化器在导入 pretrained bert 参数的情况下，不能有过长的 evaluate 周期（在我们的模型下，实测是<=14即可正常训练），否则会爆显存（尝试过强制同步和强制清理cuda cache，但是由于计图连自己的cudnn测试都过不了，所以只要调用多线程就会出错）；但是如果不导入 pretrained 就没有问题，但不初始化 bert 根本无法训练出好的结果（论文原文就是使用的 pretrained bert），目前根本无法解决这个问题；
++ AdamW优化器在导入 pretrained bert 参数的情况下，不能有过长的 evaluate 周期（在我们的模型下，实测是<=14即可正常训练），否则会爆显存（尝试过强制同步和强制清理cuda cache，但是由于计图连自己的cudnn测试都过不了，所以只要调用多线程就会出错）；但是如果不导入 pretrained 就没有问题，但不初始化 bert 根本无法训练出好的结果（论文原文就是使用的 pretrained bert）。由于是框架底层问题，因此无法有效解决，希望官方能注意到；
 + 计图在不同的显卡和不同的 gcc 版本下会报不同的错；
 + 在创建随机数组时，类型字段 `dtype` 未被使用，希望官方能注意到。
