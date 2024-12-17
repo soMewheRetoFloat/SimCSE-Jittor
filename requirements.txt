@@ -1,0 +1,4 @@
+transformers==4.2.1
+pandas
+loguru
+scipy

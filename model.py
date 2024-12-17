@@ -11,11 +11,11 @@ def j_cosine_similarity(x1, x2, dim=-1, eps=1e-8):
 
 
 class SimcseModel(BertBase):
-    def __init__(self, config, pooling, dropout=0.3):
+    def __init__(self, config, pooling, dropout=0.3, adpl=False):
         super(SimcseModel, self).__init__(config)
         config.attention_probs_dropout_prob = dropout  # 修改config的dropout系数
         config.hidden_dropout_prob = dropout
-        self.bert = BertModel(config)
+        self.bert = BertModel(config, add_pooling_layer=adpl)
         self.pooling = pooling
         self.init_weights()
 
