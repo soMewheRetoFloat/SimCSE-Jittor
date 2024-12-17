@@ -1,0 +1,21 @@
+python3 train.py \
+    --device gpu \
+    --output_path "/home/aiuser/SimCSE/output" \
+    --lr 3e-5 \
+    --dropout 0.1 \
+    --epochs 2 \
+    --batch_size_train 64 \
+    --batch_size_eval 256 \
+    --num_workers 0 \
+    --eval_step 9 \
+    --max_len 64 \
+    --seed 9973 \
+    --train_file data/wiki1m_for_simcse.txt \
+    --dev_file data/stsbenchmark/sts-dev.csv \
+    --test_file data/stsbenchmark/sts-test.csv \
+    --pretrain_model_path "pretrain_model/unsup-simcse-bert-base-uncased" \
+    --pooler cls \
+    --train_mode unsupervise \
+    --do_train \
+    --do_predict
+        # --overwrite_cache \
