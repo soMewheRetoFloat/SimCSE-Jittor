@@ -4,6 +4,14 @@ by Fl0at9973
 
 来自 Princeton-NLP 的 SimCSE 计图版本复现。
 
+## 复现效果
+
+|           | unsup | sup   |
+| --------- | ----- | ----- |
+| bert-base | 81.7% | 85.1% |
+
+
+
 ## 代码创新点
 
 + 参考[bert官方](https://github.com/google-research/bert)以及[初版计图bert](https://github.com/LetianLee/BERT-Jittor)，自定义实现了可以支持 bert_base 和 bert_large 的计图 bert：
